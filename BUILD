@@ -7,10 +7,15 @@ cc_library(
     hdrs = glob([
         "src/main/c/**/*.h",
     ]),
-    srcs = glob([
-        "src/main/c/**/*.cpp",
-        "src/main/c/**/*.h",
-    ]),
+    srcs = glob(
+        [
+            "src/main/c/**/*.cpp",
+            "src/main/c/**/*.h",
+        ],
+        exclude = [
+            "src/main/c/seasocks/ZlibContextDisabled.cpp",
+        ],
+    ),
     deps = [
         "@system//:zlib",
     ],
